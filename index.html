@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Now Playing • enzomtp's Radio</title>
+		<link rel="preconnect" href="https://radio.enzomtp.party" />
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<div id="widget" class="widget">
+			<img id="art" class="art" alt="Art" src="" />
+			<div class="meta">
+				<div id="title" class="title">Loading…</div>
+				<div id="artist" class="artist"></div>
+				<div class="row">
+					<span id="status" class="status">Connecting…</span>
+					<span id="listeners" class="listeners" title="Listeners"></span>
+				</div>
+						<div class="progress hidden" id="progress" aria-hidden="true">
+							<div class="progress__bar" id="progressBar"></div>
+						</div>
+			</div>
+		</div>
+
+		<!-- Hidden audio element used for playback in OBS (enable "Control audio via OBS" on the Browser Source) -->
+		<audio id="player" autoplay></audio>
+
+		<script src="./script.js"></script>
+	</body>
+	</html>

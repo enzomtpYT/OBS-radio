@@ -1,0 +1,103 @@
+:root{
+	
+	--bg:rgba(58,48,68,0.75); 
+	--fg:#ffffff;
+	--muted:#c9c6d6;
+	--accent:#9146ff; 
+}
+
+html,body{
+	margin:0 !important; 
+	padding:0;
+	background:transparent !important; 
+	color:var(--fg);
+	font:600 13px/1.25 Helvetica, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+
+audio{ display:none; }
+
+.widget{
+	display:flex;
+	align-items:center;
+	gap:8px;
+	padding:8px 10px;
+	padding-bottom:18px; 
+	background:var(--bg);
+	border-radius:10px;
+	min-width:260px;
+	position:relative; 
+}
+
+.art{
+	width:54px;
+	height:54px;
+	border-radius:8px;
+	object-fit:cover;
+	background:#1b2030;
+}
+
+.meta{
+	display:flex;
+	flex-direction:column;
+	min-width:0;
+}
+
+.title{
+	font-weight:800;
+	font-size:14px; 
+	line-height:1.2;
+	color:var(--fg);
+	max-width:380px;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+.artist{
+	margin-top:2px;
+	color:var(--muted);
+	font-weight:600;
+	max-width:380px;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+.row{
+	display:flex;
+	gap:10px;
+	align-items:center;
+	margin-top:6px;
+}
+
+.status{
+	color:var(--accent);
+}
+
+.listeners{
+	color:var(--muted);
+}
+
+.progress{
+	position:absolute;
+	left:10px;
+	right:10px;
+	bottom:8px;
+	height:6px;
+	background:rgba(255,255,255,0.12);
+	border-radius:999px;
+	overflow:hidden;
+	pointer-events:none;
+}
+.progress.hidden{ display:none; }
+.progress__bar{
+	position:absolute;
+	inset:0 auto 0 0;
+	width:100%;
+	transform-origin:left center;
+	transform:scaleX(0);
+	will-change:transform;
+	background:linear-gradient(90deg, var(--accent), #b98aff);
+}
+
+.fade{
+	animation:fade .35s ease-in-out;
+}
+@keyframes fade{from{opacity:.3;transform:translateY(2px)}to{opacity:1;transform:none}}
