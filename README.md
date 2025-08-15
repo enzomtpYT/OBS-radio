@@ -14,7 +14,7 @@ A compact browser-source widget for OBS that auto-plays your radio stream, shows
 2. Set URL to `https://radiowidget.enzomtp.party/obs-radio`
 3. Suggested size:
    - Width: 320 (adjust to your layout)
-   - Height: 83
+   - Height: 85
 4. Enable:
    - “Control audio via OBS” (so you can mix/mute the radio)
    - “Refresh browser when scene becomes active” (optional)

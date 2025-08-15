@@ -15,6 +15,7 @@
 		listeners: document.getElementById('listeners'),
 		progress: document.getElementById('progress'),
 		progressBar: document.getElementById('progressBar'),
+		timecode: document.getElementById('timecode'),
 	};
 
 	
@@ -203,16 +204,21 @@
 			const elapsedApi = Math.max(0, Math.round(np.elapsed || 0));
 
 			if (!duration || duration <= 0) {
-				
+			
 				if (el.progress) {
 					el.progress.classList.add('hidden');
-						el.progressBar.style.transform = 'scaleX(0)';
+					el.progressBar.style.transform = 'scaleX(0)';
+				}
+				if (el.timecode) {
+					el.timecode.classList.add('hidden');
+					el.timecode.textContent = '';
 				}
 				return;
 			}
 
 			
 			el.progress.classList.remove('hidden');
+			if (el.timecode) el.timecode.classList.remove('hidden');
 			prog.durationMs = duration * 1000;
 			
 			prog.startMs = playedAt > 0 ? (playedAt * 1000) : (Date.now() - elapsedApi * 1000);
@@ -231,10 +237,20 @@
 			const elapsedMs = Math.max(0, Math.min(prog.durationMs, Date.now() - prog.startMs));
 			const pct = Math.max(0, Math.min(1, elapsedMs / prog.durationMs));
 				el.progressBar.style.transform = `scaleX(${pct})`;
+			if (el.timecode) {
+				el.timecode.textContent = `${fmt(elapsedMs)} / ${fmt(prog.durationMs)}`;
+			}
 			
 			if (elapsedMs >= prog.durationMs) {
 					cancelAnimationFrame(prog.raf);
 			}
+		}
+
+		function fmt(ms){
+			const total = Math.max(0, Math.floor(ms/1000));
+			const m = Math.floor(total/60);
+			const s = total % 60;
+			return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
 		}
 
 	
