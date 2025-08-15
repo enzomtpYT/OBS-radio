@@ -11,7 +11,7 @@ A compact browser-source widget for OBS that auto-plays your radio stream, shows
 ## OBS Setup
 
 1. OBS ➜ Sources ➜ + ➜ Browser ➜ Create New
-2. Set URL to `https://enzomtpyt.github.io/obs-radio`
+2. Set URL to `https://radiowidget.enzomtp.party/obs-radio`
 3. Suggested size:
    - Width: 320 (adjust to your layout)
    - Height: 83
